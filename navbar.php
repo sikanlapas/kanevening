@@ -37,6 +37,11 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#">สินค้าราคาพิเศษ</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li><a class="dropdown-item" href="cat_form.php">เพิ่มประเภทสินค้า</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
