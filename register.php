@@ -5,7 +5,7 @@ include "navbar.php";
     <div class="row justify-content-center">
         <div class="col-md-6 ">
             <h2 class="text-center">สมัครสมาชิก</h2>
-            <form action="reg_insert2.php" method="POST">
+            <form action="reg_insert.php" method="POST">
                 <div class="row">
                     <div class="col-md-3">Username</div>
                     <div class="col-md-9">
