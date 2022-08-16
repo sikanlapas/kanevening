@@ -1,5 +1,8 @@
 <?php
  session_start();
+ include "connect.php";
+ $sql = "SELECT * FROM tbl_category";
+$result = mysqli_query($conn, $sql);
  ?>
 
 <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -27,22 +30,31 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        ประเภทสินค้า
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">สินค้าขายปลีก</a></li>
-                        <li><a class="dropdown-item" href="#">สินค้าขายส่ง</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">สินค้าราคาพิเศษ</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <?php
+                        while($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <li><a class="dropdown-item"
+                                href="cat_detail.php?cid=<?php echo $row[cid] ?>"><?php echo $row[cname] ?></a></li>
+                        <?php
+                        }
+                    ?>
 
-                        <li><a class="dropdown-item" href="cat_form.php">เพิ่มประเภทสินค้า</a></li>
+                        <?php
+                        if($_SESSION['status'] == "admin"){
+                         ?>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="cat_form.php"> + เพิ่มประเภทสินค้า</a></li>
+                        <?php } ?>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.php">สินค้า</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">วิธีการชำระเงิน</a>
@@ -64,7 +76,7 @@
                 <?php
                  } else if($_SESSION['username'] && $_SESSION['status'] == "admin"){
                 ?>
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="./reg_select.php">แสดงสมาชิก</a>
                 </li>
                 <li class="nav-item">
@@ -82,7 +94,7 @@
                 </li>
                 <?php } ?>
             </ul>
-         
+
         </div>
     </div>
 </nav>

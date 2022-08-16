@@ -2,7 +2,7 @@
 include "connect.php";
 $cid = $_GET[cid];
 
-$sql = "DELETE FROM tbl_users WHERE cid='$cid'";
+$sql = "DELETE FROM tbl_category WHERE cid='$cid'";
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>

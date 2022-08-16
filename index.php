@@ -23,6 +23,9 @@ echo " เวลา ". date('H:i:s');
   <marquee>
   <h2 style='color:blue'> welcome </h2>
 </marquee>
+<?php
+     include "products.php";
+   ?>
 
 </div>
 
